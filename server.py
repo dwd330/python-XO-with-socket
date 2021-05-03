@@ -16,6 +16,7 @@ def connectnewuser(c,ad):
         m=c.recv(256).decode()
         m_data = m.split(":", 1)
         textMessage=m_data[1]
+        print('textmesg',textMessage)
         client=clients[m_data[0]]
         sendtoclient(textMessage,client)
 

@@ -25,6 +25,7 @@ class Client:
         self.posX=posX
         self.posY=posY
         pos_data=self.clientid2 +':'+str(posX)+','+str(posY)
+        print('pos_data',pos_data)
         self.s.send(bytes(pos_data, encoding='utf-8'))
 
 

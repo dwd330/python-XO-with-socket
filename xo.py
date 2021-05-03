@@ -1,15 +1,16 @@
 # MODULES
-import pygame, sys
+import pygame
 import numpy as np
 class xogame:
-	def __init__(self, player):
+	def __init__(self, meplayer,otherplayer):
 		# initializes pygame
 		pygame.init()
 
 		# ---------
 		# CONSTANTS
 		# ---------
-		self.player = player
+		self.meplayer = meplayer
+		self.otherplayer = otherplayer
 		self.WIDTH = 600
 		self.HEIGHT = 600
 		self.LINE_WIDTH = 15
