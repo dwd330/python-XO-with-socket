@@ -1,36 +1,41 @@
 from xo import *
 from client import *
 import sys
-
-#     ..........<<   MAIN  >>...................
-
-#init connection
-clientid1=input('your name:')
-clientid2=input('play with who:')
-player=input(' play with X or O:')
+from easygui import *  #for form input
+#     ..........<<   MAIN task  >>...................
+#get user input from gui
+msg = "Enter some information"
+title = " X O game network"
+fieldNames = ["yourName", " play with", "pick X or O"]
+fieldValues = multenterbox(msg, title, fieldNames)
+print(fieldValues)
+#assign input 
+clientid1=fieldValues[0]
+clientid2=fieldValues[1]
+player=fieldValues[2]
+print(clientid1)
 if player=='o':
-	meplayer=1
+	myplayer=1
 	otherplayer=2
 elif player=='x':
-	meplayer=2
+	myplayer=2
 	otherplayer=1
 
+#start new game 
 clientplayer=Client(clientid1,clientid2) #create client opject
-mygame=xogame(meplayer,otherplayer) #create game opject
+mygame=xogame(myplayer,otherplayer) #create game opject
 #play1
 def meplay(mouseX,mouseY):
-	print('me played')
 	clicked_row = int(mouseX // mygame.SQUARE_SIZE)
 	clicked_col = int(mouseY // mygame.SQUARE_SIZE)
 	print(clicked_row,clicked_col)
 	if mygame.available_square( clicked_row, clicked_col ):
-		mygame.mark_square( clicked_row, clicked_col, mygame.meplayer )
-		if mygame.check_win( mygame.meplayer ):
+		mygame.mark_square( clicked_row, clicked_col, mygame.myplayer )
+		if mygame.check_win( mygame.myplayer ):
 			mygame.game_over = True
 		mygame.draw_figures()
 #play2
 def otherplay():
-	print('other played')
 	pos_xy=clientplayer.get_data()
 	if pos_xy:
 		pos_xy=pos_xy.split(",", 1)
