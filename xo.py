@@ -2,14 +2,14 @@
 import pygame
 import numpy as np
 class xogame:
-	def __init__(self, meplayer,otherplayer):
+	def __init__(self, myplayer,otherplayer):
 		# initializes pygame
 		pygame.init()
 
 		# ---------
 		# CONSTANTS
 		# ---------
-		self.meplayer = meplayer
+		self.myplayer = myplayer
 		self.otherplayer = otherplayer
 		self.WIDTH = 600
 		self.HEIGHT = 600
