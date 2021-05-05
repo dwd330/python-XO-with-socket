@@ -11,13 +11,22 @@ class Client:
         self.s.send(bytes(self.clientid1, encoding='utf-8'))
         threading._start_new_thread( self.RecivHandler,())
         self.recived=''
+        self.newrecived=''
+        self.newdata=False
     #handle recive
     def RecivHandler(self):
         while True:
-            self.recived=self.s.recv(256).decode()
+            self.newrecived=self.s.recv(256).decode()
+            if self.newrecived !='':
+                if self.newrecived !=self.recived:
+                    self.recived=self.newrecived 
+                    self.newdata=True
 
+    #recive message
     def get_data(self) :
-        return self.recived
+        if self.newdata:
+            self.newdata=False
+            return self.newrecived
 
 
     #send message
@@ -25,7 +34,6 @@ class Client:
         self.posX=posX
         self.posY=posY
         pos_data=self.clientid2 +':'+str(posX)+','+str(posY)
-        print('pos_data',pos_data)
         self.s.send(bytes(pos_data, encoding='utf-8'))
 
 

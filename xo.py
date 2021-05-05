@@ -28,7 +28,10 @@ class xogame:
 		self.LINE_COLOR = (23, 145, 135)
 		self.CIRCLE_COLOR = (239, 231, 200)
 		self.CROSS_COLOR = (66, 66, 66)
+		#flags
 		self.game_over = False
+		self.playedflag=False #play once every round
+
 
 		# ------
 		# SCREEN
