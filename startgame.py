@@ -59,9 +59,6 @@ while True:
 				clientplayer.send(mouseX,mouseY) #send x y to other user
 				mygame.playedflag=True
 
-
-			
-
 		if event.type == pygame.QUIT:
 			sys.exit()
 
@@ -69,7 +66,5 @@ while True:
 			if event.key == pygame.K_r:
 				mygame.restart()
 				mygame.game_over = False
-	
-	
 
 	pygame.display.update()

@@ -37,7 +37,7 @@ class xogame:
 		# SCREEN
 		# ------
 		self.screen = pygame.display.set_mode( (self.WIDTH, self.HEIGHT) )
-		pygame.display.set_caption( 'TIC TAC TOE' )
+		pygame.display.set_caption( 'xo game')
 		self.screen.fill( self.BG_COLOR )
 		
 		# -------------
